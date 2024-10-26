@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Insert Webpage</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            {{EWFO.as_p}}
+
+            <br>
+            <input type="submit" value="Insert Webpage">
+        </form>
+</body>
+</html>

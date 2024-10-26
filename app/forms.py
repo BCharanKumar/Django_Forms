@@ -1,5 +1,5 @@
 from django import forms
-
+from app.models import *
 
 class StudentForm(forms.Form):
     g=[['MALE','male'],['FEMALE','female']]
@@ -19,3 +19,18 @@ class StudentForm(forms.Form):
     
 
 
+class TopicForm(forms.Form):
+    tn=forms.CharField()
+
+
+class WebpageForm(forms.Form):
+    tn=forms.ModelChoiceField(queryset=Topic.objects.all())
+    name=forms.CharField()
+    url=forms.URLField()
+    email=forms.EmailField()
+
+
+class AccessRecordForm(forms.Form):
+    na=forms.ModelChoiceField(queryset=WebPage.objects.all())
+    author=forms.CharField()
+    date=forms.DateField()
