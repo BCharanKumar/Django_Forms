@@ -24,13 +24,13 @@ class TopicForm(forms.Form):
 
 
 class WebpageForm(forms.Form):
-    tn=forms.ModelChoiceField(queryset=Topic.objects.all())
+    topic_name=forms.ModelChoiceField(queryset=Topic.objects.all())
     name=forms.CharField()
     url=forms.URLField()
     email=forms.EmailField()
 
 
 class AccessRecordForm(forms.Form):
-    na=forms.ModelChoiceField(queryset=WebPage.objects.all())
+    name=forms.ModelChoiceField(queryset=WebPage.objects.all())
     author=forms.CharField()
     date=forms.DateField()

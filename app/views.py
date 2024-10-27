@@ -42,8 +42,8 @@ def insert_webpage(request):
     if request.method=='POST':
         WFDO=WebpageForm(request.POST)
         if WFDO.is_valid():
-            tn=request.POST['tn']
-            TO=Topic.objects.get(topic_name=tn)
+            topic_name=request.POST['topic_name']
+            TO=Topic.objects.get(topic_name=topic_name)
             name=request.POST['name']
             url=request.POST['url']
             email=request.POST['email']
@@ -55,3 +55,20 @@ def insert_webpage(request):
     return render(request,'insert_webpage.html',d)
 
 
+def inser_accessrecord(request):
+    EAFO=AccessRecordForm()
+    d={'EAFO':EAFO}
+
+    if request.method=='POST':
+        AFDO=AccessRecordForm(request.POST) 
+        if AFDO.is_valid():
+            name=request.POST['name']
+            WO=WebPage.objects.get(id=name)
+            author=request.POST['author']
+            date=request.POST['date']
+            AO=AccessRecord.objects.get_or_create(name=WO,author=author,date=date)
+            return HttpResponse('Access Record object created Successfully')
+        else:
+            return HttpResponse('invalid data here...!  ')
+
+    return render(request,'inser_accessrecord.html',d)

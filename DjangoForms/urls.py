@@ -22,4 +22,5 @@ urlpatterns = [
     path('studentdjf/',studentdjf,name='studentdjf'),
     path('insert_topic/',insert_topic,name='insert_topic'),
     path('insert_webpage/',insert_webpage,name='insert_webpage'),
+    path('inser_accessrecord/',inser_accessrecord,name='inser_accessrecord'),
 ]
