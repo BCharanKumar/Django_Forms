@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from app.forms import *
 from django.http import HttpResponse
@@ -11,6 +12,12 @@ def studentdjf(request):
     if request.method=='POST':
         SFDO=StudentForm(request.POST)
         if SFDO.is_valid():
+            sid=request.POST['sid']
+            sname=request.POST['sname']
+            email=request.POST['semail']
+            phone=request.POST['phone']
+            SO=Student.objects.create(sid=sid,sname=sname,email=email,phone=phone)
+            #return HttpResponse('doneeeeeeeeeeeeeee........!')
             #return HttpResponse(SFDO)
             #return HttpResponse(str(SFDO))
             return HttpResponse(str(SFDO.cleaned_data))
